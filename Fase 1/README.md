@@ -8,6 +8,7 @@ Esta carpeta contiene la documentación técnica fundamental desarrollada durant
 - Modelado de Procesos de Negocio (BPMN) 
 - Modelo Entidad-Relación (MER)
 - Diagrama de Clases del Sistema
+- Diagrama de Actividad
 - Arquitectura por Capas del Software
 - Matriz de Responsabilidades (RACI)
 
@@ -15,6 +16,7 @@ Esta carpeta contiene la documentación técnica fundamental desarrollada durant
 - StarUML para diagramas UML
 - Bizagi Modeler para procesos BPMN
 - Microsoft Excel para matriz RACI
+- Microsoft Word para Información Técnica
 
 ## Período de Desarrollo
 Semanas 1-4 del cronograma académico 2025-1
