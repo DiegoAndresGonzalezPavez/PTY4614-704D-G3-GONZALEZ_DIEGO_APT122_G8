@@ -1,9 +1,10 @@
 'use client';
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Footer from '../../components/Footer';
 
-export default function CrearHistorialPage() {
+function CrearHistorialContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const citaId = searchParams.get('cita_id');
@@ -420,5 +421,13 @@ export default function CrearHistorialPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function CrearHistorialPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><p>Cargando...</p></div>}>
+      <CrearHistorialContent />
+    </Suspense>
   );
 }
