@@ -1,9 +1,10 @@
 'use client';
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Footer from '../../components/Footer';
 
-export default function HistorialMedicoPage() {
+function HistorialMedicoContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mascotaId = searchParams.get('mascota');
@@ -315,5 +316,13 @@ export default function HistorialMedicoPage() {
       <br />
       <Footer />
     </div>
+  );
+}
+
+export default function HistorialMedicoPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><p>Cargando...</p></div>}>
+      <HistorialMedicoContent />
+    </Suspense>
   );
 }

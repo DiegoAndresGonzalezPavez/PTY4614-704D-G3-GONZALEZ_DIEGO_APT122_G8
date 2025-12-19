@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Footer from '@/app/components/Footer';
 
-export default function PagoExitosoPage() {
+function PagoExitosoContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [verificando, setVerificando] = useState(true);
@@ -174,5 +175,13 @@ export default function PagoExitosoPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function PagoExitosoPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50"><div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600"></div></div>}>
+      <PagoExitosoContent />
+    </Suspense>
   );
 }

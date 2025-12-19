@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ import axios from 'axios';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
-export default function PagoExitososPage() {
+function PagoExitososContent() {
   const searchParams = useSearchParams();
   const [orden, setOrden] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -81,5 +82,13 @@ export default function PagoExitososPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function PagoExitososPage() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div></div>}>
+      <PagoExitososContent />
+    </Suspense>
   );
 }
